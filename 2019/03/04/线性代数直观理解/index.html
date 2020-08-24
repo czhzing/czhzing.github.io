@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="线性代数如果通过图像去直观理解，真的特别nice!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于线性代数的直观理解">
+<meta property="og:url" content="http://yoursite.com/2019/03/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:site_name" content="逆时针">
+<meta property="og:description" content="线性代数如果通过图像去直观理解，真的特别nice!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-03-03T16:00:00.000Z">
+<meta property="article:author" content="czhzing">
+<meta property="article:tag" content="数学军团">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/03/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>关于线性代数的直观理解 | 逆时针</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">逆时针</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-learning">
+
+    <a href="/learning/" rel="section"><i class="fa fa-wifi fa-fw"></i>他山石</a>
+
+  </li>
+        <li class="menu-item menu-item-technology">
+
+    <a href="/technology/" rel="section"><i class="fa fa-beer fa-fw"></i>威士忌</a>
+
+  </li>
+        <li class="menu-item menu-item-life">
+
+    <a href="/life/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>昊望角</a>
+
+  </li>
+        <li class="menu-item menu-item-other">
+
+    <a href="/other/" rel="section"><i class="fa fa-paint-brush fa-fw"></i>调色板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://craigtsai-record001.oss-cn-beijing.aliyuncs.com/img/IMG_0240.JPG">
+      <meta itemprop="name" content="czhzing">
+      <meta itemprop="description" content="一个对生活上瘾的高冷沙雕">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆时针">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于线性代数的直观理解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-04T00:00:00+08:00">2019-03-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Gossip/" itemprop="url" rel="index"><span itemprop="name">Gossip</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>线性代数如果通过图像去直观理解，真的特别nice!</p>
+<a id="more"></a>
+<hr>
+<hr>
+<h2 id="关于线性代数的直观理解"><a href="#关于线性代数的直观理解" class="headerlink" title="关于线性代数的直观理解"></a>关于线性代数的直观理解</h2><h4 id="线性变换的概念"><a href="#线性变换的概念" class="headerlink" title="线性变换的概念"></a>线性变换的概念</h4><ul>
+<li><p>什么叫线性变换，就是空间通过伸缩等变成平行等距的，原点不变的空间。假设是二维的空间，就是很多等距平行的正方形网格。假设是三维的就是很多等距平行的立方体模型。</p>
+</li>
+<li><p>线性变换的应用：</p>
+<ul>
+<li>重积分坐标变换要乘雅克比行列式，因为行列式本质就是由基向量构成的矩阵的面积，缩放，让每一个小的图形尽可能地变小，去贴合不规则图形的形状，从而更好地求得不规则图形的面积。行列式的值为0就相当于将这个空间降维了。这一点就好比是有一块很大的拼图，不规则形状，假设打上了马赛克，即用大一点的正方形组成拼接的，但是可能会有地方超出来。假设改成菱形呢，通过矩形变换去拟合，或者变成更小一点的正方形去拟合呢？说不定会更好。</li>
+</ul>
+</li>
+</ul>
+<h4 id="关于行列式的直观理解"><a href="#关于行列式的直观理解" class="headerlink" title="关于行列式的直观理解"></a>关于行列式的直观理解</h4><ul>
+<li>行列式的值如果为负数，那么其绝对值的值是缩放的比例，负号表示空间翻转，就像一张纸一样。 </li>
+<li>二阶行列式其实是一个二维平面四边形的面积；三阶行列式其实是一个平行六面体的体积。</li>
+</ul>
+<h4 id="关于秩、线性空间的直观理解"><a href="#关于秩、线性空间的直观理解" class="headerlink" title="关于秩、线性空间的直观理解"></a>关于秩、线性空间的直观理解</h4><ul>
+<li><p>秩是用来描述空间经过线性变换以后空间的维数，是一维的还是二维的，还是三维的。</p>
+</li>
+<li><p>所有可能的输出像两个Av构成的集合称为A的列空间。矩阵的列所张成的空间。</p>
+</li>
+</ul>
+<h4 id="关于线性方程和它的解"><a href="#关于线性方程和它的解" class="headerlink" title="关于线性方程和它的解"></a>关于线性方程和它的解</h4><ul>
+<li><p>一个线性方程，可以通过逆变换来求方程组的解，即还原。</p>
+</li>
+<li><p>如果一个三维矩阵降到二维，说明，有一个直线上的所有向量被压缩成了原点，如果一个三维矩阵降到了一维，说明，有一整个平面的所有向量被压缩成了原点。以此列推。这些被压缩在原点里面的就构成了零空间</p>
+</li>
+<li><p>列空间的概念在于什么时候有解</p>
+<ul>
+<li>列空间就是矩阵的列所张成的空间。秩的更加精确的定义是列空间的维数。当秩达到最大值时，意味着秩与列数相等。零向量一定包含在列空间当中，因为线性变换必须保持原点位置不变。对于一个满秩变换来说，唯一能在变换后落在原点的就是零向量自身。但是对于一个非满秩的矩阵来说，它将空间压缩到一个更低的维度上（一系列的向量在变换后成为零向量）。二维线性变换将空间压缩到一条直线上，沿着直线上不同方向的所有向量就被压缩到原点。三维线性变换将空间压缩到一个平面上，同样会有一整条线上的向量在变换后落在原点。如果三维线性变换将空间压缩到一条直线上，将会有一整个平面上的向量在变换后落在原点。在变换后落在原点的向量集合，被称为所选矩阵的“零空间”或者“核”，变换后一些向量落在零向量上，从意义上来说，“零空间”就是这些向量张成的空间。</li>
+</ul>
+</li>
+<li><p>非方阵有点难理解，方阵都是由一个空间转换到对应的维度。3x2的矩阵的意思是：2代表两个基向量，3代表每一个基向量变换后都用三个独立的坐标来描述。换句话说，就是一个二维平面放到三维空间里去描述。 2x3矩阵的意思是，有3个基向量，每一个基向量用2个坐标来表示，它还是满秩的，因为列空间的维数与输入空间的维数相等。</p>
+</li>
+</ul>
+<h4 id="关于向量的数量积和叉积"><a href="#关于向量的数量积和叉积" class="headerlink" title="关于向量的数量积和叉积"></a>关于向量的数量积和叉积</h4><ul>
+<li><p>向量的数量积和点积</p>
+<ul>
+<li><p>向量的数量积就是类似两个2x1的矩阵相乘，向量都是立着的，1x2矩阵就相当于二维平面中的一维数轴，然后变换2x1的坐标点到数轴上。</p>
+</li>
+<li><p>1x2向量[2 3]与二维矩阵（立着的）[2 3] 之间的关系，二维空间压缩成一根一维的数轴。</p>
+</li>
+</ul>
+</li>
+<li><p>点积：与投影有关。</p>
+<ul>
+<li>直观的理解：把两个向量看成是一个矩阵对另一个向量的线性变换。</li>
+<li>描述投影变换的1x2矩阵的两列，就分别是u帽的两个坐标！！！！！牛逼！！！！1x2矩阵是用来描述变换的。</li>
+</ul>
+</li>
+<li><p>如何解释投影变换和点积是一样的方法？</p>
+<ul>
+<li>投影先把二维上的基向量i,j变成了数轴上的ux，uy，这个过程就是变换，以i，j为基向量的向量变换都要进行乘积</li>
+</ul>
+</li>
+<li><p>注意点：点积是数，矩阵乘法是向量，两者仅数值相等，不完全相等</p>
+</li>
+<li><p>叉积的方向根据右手定则，大拇指的方向就是叉积的方向。空间理解就是一个平行六面体，一个固定的底面积，乘以高，所谓的高就是（x,y,z）在垂直于底面方向上的投影。又根据对偶性，向量P就等价于v,w且值等于平行四边形面积的向量。这个等价于向量P（垂直于v,w且值等于平行四边形面积的向量）与（x,y,z）向量点乘。  </p>
+</li>
+</ul>
+<h4 id="关于逆变换和特征向量、特征值"><a href="#关于逆变换和特征向量、特征值" class="headerlink" title="关于逆变换和特征向量、特征值"></a>关于逆变换和特征向量、特征值</h4><ul>
+<li><p>我们的基变换的逆x线性变换x我们的基变换 x She描述的向量=转移，视角的转化。先以我们的角度看，再以She的角度看</p>
+</li>
+<li><p>找特征向量本质上是找旋转轴，一个空间经过变换以后可能仍然会有向量在自己原来张成的空间中（即原来的直线上），只是被缩放了，所以缩放的比例就是特征值。那么描述这一特征，就可以写成Av=λv，左边是两个向量相乘，右边是数乘，为了将数乘转化为向量，可以将λ看成是λ乘以一个三阶单位矩阵（即λI），那么Av=(λI)v可以转换成(A-λI)v=o向量，当且仅当矩阵代表的变换将空间降维时，才会存在一个非零向量，是的矩阵和它的乘积为零向量。即行列式为0。</p>
+</li>
+<li><p>如果要计算一个矩阵100次幂，可以先转换到不变的特征基，再进行计算。</p>
+</li>
+</ul>
+<p>具体即特征基的逆 x 原始变换矩阵 x 特征基矩阵 （对角化）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%86%9B%E5%9B%A2/" rel="tag"># 数学军团</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/01/%E8%81%8C%E5%9C%BA%E6%B5%B7%E8%B4%BC%E7%8E%8B%E4%B9%8B%E5%86%99%E4%BD%9C%E6%AD%A6%E5%99%A8/" rel="prev" title="职场海贼王之写作武器">
+      <i class="fa fa-chevron-left"></i> 职场海贼王之写作武器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/07/18/hip-hop,%E6%88%91%E8%B7%9F%E4%BD%A0%E4%B8%80%E8%BE%88%E5%AD%90/" rel="next" title="hip-hop,我跟你一辈子">
+      hip-hop,我跟你一辈子 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">关于线性代数的直观理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.1.</span> <span class="nav-text">线性变换的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="nav-number">1.0.2.</span> <span class="nav-text">关于行列式的直观理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%A7%A9%E3%80%81%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="nav-number">1.0.3.</span> <span class="nav-text">关于秩、线性空间的直观理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E5%92%8C%E5%AE%83%E7%9A%84%E8%A7%A3"><span class="nav-number">1.0.4.</span> <span class="nav-text">关于线性方程和它的解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E9%87%8F%E7%A7%AF%E5%92%8C%E5%8F%89%E7%A7%AF"><span class="nav-number">1.0.5.</span> <span class="nav-text">关于向量的数量积和叉积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%80%86%E5%8F%98%E6%8D%A2%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E3%80%81%E7%89%B9%E5%BE%81%E5%80%BC"><span class="nav-number">1.0.6.</span> <span class="nav-text">关于逆变换和特征向量、特征值</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="czhzing"
+      src="https://craigtsai-record001.oss-cn-beijing.aliyuncs.com/img/IMG_0240.JPG">
+  <p class="site-author-name" itemprop="name">czhzing</p>
+  <div class="site-description" itemprop="description">一个对生活上瘾的高冷沙雕</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/czhzing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;czhzing" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:bpbczh112426@163.com" title="E-Mail → mailto:bpbczh112426@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/p/1005055210759170/home?from=page_100505&mod=TAB&is_all=1#place" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005055210759170&#x2F;home?from&#x3D;page_100505&amp;mod&#x3D;TAB&amp;is_all&#x3D;1#place" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://czhonghtub.lofter.com/" title="Lofter → http:&#x2F;&#x2F;czhonghtub.lofter.com" rel="noopener" target="_blank"><i class="fa fa-camera fa-fw"></i>Lofter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">czhzing</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
